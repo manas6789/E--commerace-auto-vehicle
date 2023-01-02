@@ -1,0 +1,79 @@
+<h2>Vehicle Details</h2>
+<br>
+<hr>
+
+<div *ngFor="let v of vehicles">
+{{v|json}} <button (click)="deleteVehicle(v)" *ngIf="role=='ROLE_admin'">Delete</button> <button (click)="edit(v)"*ngIf="role=='ROLE_admin'">Edit</button> <button (click)="addtoCart(v)" *ngIf="role=='ROLE_user'">AddToCart</button> <button (click)="deleteFromCart(v)"*ngIf="role=='ROLE_user'">remove</button>
+</div>
+<br>
+<hr>
+
+<!-- Form1 -->
+
+<form [formGroup]=" vehicleFormDetails1"  (ngSubmit)="addNewVehicle()" *ngIf="role=='ROLE_admin'">
+    <h2>Enter vehicle details to add </h2>
+    <div>
+         ModelNo:
+        <input type="text" placeholder="Enter ModelNo" formControlName="modelNo"/>
+    </div>
+    <div>
+         Price:
+        <input type="text" placeholder="Enter the price" formControlName="price"/>
+    </div>
+    <div>
+        Colour:
+        <input type="text" placeholder="Enter vehicle Colour" formControlName="colour"/>
+    </div>
+    <div>
+        TopSpeed:
+            <input type="text" placeholder="Maximum Speed" formControlName="topSpeed"/>
+    </div>
+    <div>
+        EngineType:
+            <input type="text" placeholder="EngineType" formControlName="engineType"/>
+    </div>
+    
+  <input type="submit" value="submit">  
+</form>
+<button (click)="logout()">logout</button>
+
+<!-- Form2 -->
+
+<br>
+<hr>
+ 
+<form [formGroup]=" vehicleFormDetails2"  (ngSubmit)="updateVehicleDetais()" *ngIf="flag">
+    <h2>Enter vehicles Details to Update</h2>
+    <div>
+         ModelNo:
+        <input type="text" placeholder="Enter ModelNo" formControlName="modelNo" readonly="modelNo"/>
+    </div>
+    <div>
+         Price:
+        <input type="text" placeholder="Enter the price" formControlName="price"/>
+    </div>
+    <div>
+        Colour:
+        <input type="text" placeholder="Enter vehicle Colour" formControlName="colour"/>
+    </div>
+    <div>
+        TopSpeed:
+            <input type="text" placeholder="Maximum Speed" formControlName="topSpeed"/>
+    </div>
+    <div>
+        EngineType:
+            <input type="text" placeholder="EngineType" formControlName="engineType"/>
+    </div>
+    
+  <input type="submit" value="update"> 
+   </form>
+
+   <div *ngIf="role=='ROLE_user'">
+    <h2>VehicleCart</h2>
+    <!-- cart -->
+    <div *ngFor="let c of vehicleCart">
+        {{c|json}} 
+        </div>
+        <br>
+        <hr>
+   </div>

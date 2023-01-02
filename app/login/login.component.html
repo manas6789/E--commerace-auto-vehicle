@@ -1,0 +1,14 @@
+<h2>Login</h2>
+<form [formGroup]="loginForm"  (ngSubmit)="login()">
+    <div>
+         ID:
+        <input type="text" placeholder="Enter ID"  value=null formControlName="userId"/>
+    </div>
+    
+    <div>
+         Password:
+        <input type="text" placeholder="Enter Password" value=null formControlName="userPassword"/>
+    </div>
+    <input type="submit" value="submit">
+  </form>
+  {{userRole}}

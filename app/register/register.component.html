@@ -1,0 +1,22 @@
+<h2>Registration Form</h2>
+
+<form [formGroup]="registrationForm"  (ngSubmit)="register()">
+    <div>
+         Email:
+        <input type="text" placeholder="Enter Email ID" formControlName="userEmail"/>
+    </div>
+    <div>
+         Password:
+        <input type="text" placeholder="Enter Password" formControlName="userPassword"/>
+    </div>
+    <div>
+        PhoneNumber:
+        <input type="text" placeholder="Enter phoneNumber" formControlName="userPhoneNumber"/>
+    </div>
+    <div>
+        Adress:
+            <input type="text" placeholder="Enter CityName" formControlName="userAdress"/>
+    </div>
+    
+  <input type="submit" value="submit">  
+</form>
